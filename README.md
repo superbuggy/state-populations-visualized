@@ -18,11 +18,14 @@ To install node with homebrew...
  $ brew install node
 ```
 
-### Launch
+### Installation & Launch
 
-The application may be launched with the following command...
+The application may be installed and launched with the following commands...
 
 ```sh
+ $ git clone git@github.com:superbuggy/state-populations-visualized.git
+ $ cd state-populations-visualized/
+ $ npm i
  $ npm start
 ```
 
@@ -31,6 +34,8 @@ The application may be launched with the following command...
 ### Front End
 
 Initially, I'd sought out to learn and use a map library but saw the suggested time limit probably wouldn't accomodate the learning curve. Instead, I opted to use as few libraries as possible, opting to use an SVG map of the United States sourced from wikipedia. The SVG lent itself well with the DOM API. Originally, I thought I would color in the map as a choropleth/heatmap, but ran out of time.
+
+CSS is used to style an SVG path representing each state.
 
 ### Back End
 
