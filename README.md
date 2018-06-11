@@ -23,7 +23,10 @@ To install node with homebrew...
 The application may be installed and launched with the following commands...
 
 ```sh
+ # Using SSH
  $ git clone git@github.com:superbuggy/state-populations-visualized.git
+ # Using HTTP
+ $ git clone https://github.com/superbuggy/state-populations-visualized.git
  $ cd state-populations-visualized/
  $ npm i
  $ npm start
