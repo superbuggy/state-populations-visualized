@@ -40,6 +40,8 @@ Initially, I'd sought out to learn and use a map library but saw the suggested t
 
 CSS is used to style an SVG path representing each state.
 
+Uses ES2015 fetch.
+
 ### Back End
 
 I exported the provided spreadsheet as a `.csv`, cleaned the trailing columns, imported it into my server-side app using the npm module `csvtojson`, and then served the resulting JSON to be consumed by the front-end application.
