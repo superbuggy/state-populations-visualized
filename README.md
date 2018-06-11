@@ -48,7 +48,7 @@ Uses ES2015 `fetch` and `.find`.
 
 I exported the provided spreadsheet as a `.csv`, cleaned the trailing columns, imported it into my `express`-powered server-side app using the npm module `csvtojson`, and then served the resulting JSON to be consumed by the front-end code in `client.js`.
 
-Static assets are served by the `express` app as well.
+Static assets are served by the `node`-`express` app as well.
 
 ## Sources
 
