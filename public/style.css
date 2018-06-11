@@ -16,10 +16,9 @@ svg {
 }
 
 g path:hover {
-  stroke: rgba(128, 128, 128);
-  stroke-width: 2px;
+  stroke: rgb(255, 255, 255);
+  stroke-width: 8px;
   stroke-opacity: .5;
-  fill:rgba(244, 222, 122, .5);
 }
 
 .container {
