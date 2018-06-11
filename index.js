@@ -13,7 +13,6 @@ app.use('/public', express.static('public'))
 app.get('/populations', serveJson)
 app.get('/', serveHomePage)
 
-
 function startUp () {
   console.log('🏃 on port', app.get('port'))
   exec('open http://localhost:3000/')
