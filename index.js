@@ -1,5 +1,6 @@
 const express = require('express')
 const csv = require('csvtojson')
+const { exec } = require('child_process')
 
 const app = express()
 const PORT = 3000
@@ -15,6 +16,7 @@ app.get('/', serveHomePage)
 
 function startUp () {
   console.log('🏃 on port', app.get('port'))
+  exec('open http://localhost:3000/')
 }
 
 //Route Handling

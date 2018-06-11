@@ -24,7 +24,7 @@ function summary (state) {
   return `${state.State} is the ${rank} most populous state with ${state.Population} residents.`
 }
 
-function cardinalToOrdinal (number) { //https://stackoverflow.com/questions/13627308/add-st-nd-rd-and-th-ordinal-suffix-to-a-number
+function cardinalToOrdinal (number) { //adapted from https://stackoverflow.com/questions/13627308/add-st-nd-rd-and-th-ordinal-suffix-to-a-number
   const suffixes = ["th", "st", "nd", "rd"]
   const indexOfOrdinal = number % 100
   const teenAdjustedIndexOfOrdinal = (indexOfOrdinal - 20) % 10
