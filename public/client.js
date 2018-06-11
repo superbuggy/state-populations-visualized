@@ -11,7 +11,7 @@ svg.addEventListener('mouseover', handleHover)
 
 function handleHover (event) {
   const stateName = getStateFromAbbreviation(event.target.id)
-  let titleForToolTip = event.target.id ? stateName : 'United States'
+  const titleForToolTip = event.target.id ? stateName : 'United States'
   svg.querySelector('title').innerHTML = titleForToolTip
   const state = populationData.find(stateData => stateData.State === stateName)
   infoHeader.innerText = summary(state)
