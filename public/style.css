@@ -1,8 +1,18 @@
 @import url('https://fonts.googleapis.com/css?family=Libre+Baskerville');
 
 body {
+  background: rgb(232, 232, 232);
   text-align: center;
   font-family: 'Libre Baskerville', Georgia, 'Times New Roman', Times, serif;
+}
+
+svg {
+  background: rgb(238, 238, 238);
+  border: 1px solid rgb(155, 155, 155);
+  box-shadow: .25em .25em 5px rgb(211, 211, 211);
+  display: block;
+  margin: auto;
+  zoom: .75;
 }
 
 g path:hover {
@@ -13,16 +23,5 @@ g path:hover {
 }
 
 .container {
-  border: 4px solid rgb(23, 23, 23);
   padding: 1em;
-  background: rgb(232, 232, 232);
-}
-
-svg {
-  background: rgb(238, 238, 238);
-  border: 1px solid rgb(155, 155, 155);
-  box-shadow: .25em .25em 5px rgb(211, 211, 211);
-  display: block;
-  margin: auto;
-  zoom: .75;
 }
