@@ -40,7 +40,7 @@ The application may be installed and launched with the following commands...
 
 Initially, I'd sought out to learn and use a map library but saw the suggested time limit probably wouldn't accomodate the learning curve. Instead, I opted to use as few libraries as possible, opting to use an SVG map of the United States sourced from wikipedia. The SVG lent itself well with the DOM API. Originally, I thought I would color in the map as a choropleth/heatmap, but ran out of time.
 
-CSS is used to style an SVG path representing each state.
+CSS is used to style an SVG path representing each state. Used `epi.org` as a reference point for styling.
 
 Uses ES2015 fetch.
 
