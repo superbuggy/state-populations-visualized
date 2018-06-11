@@ -6,6 +6,11 @@ body {
   font-family: 'Libre Baskerville', Georgia, 'Times New Roman', Times, serif;
 }
 
+footer {
+  width: 50vw;
+  margin: 0 auto;
+}
+
 svg {
   background: rgb(238, 238, 238);
   border: 1px solid rgb(155, 155, 155);
@@ -24,3 +29,15 @@ g path:hover {
 .container {
   padding: 1em;
 }
+
+.max, .min {
+  min-height: 20px;
+  max-height: 20px;
+  min-width: 20px;
+  max-width: 20px;
+  border: 1px solid black;
+  display: inline-block;
+}
+
+.min { background: rgb(0, 95, 0); }
+.max { background: rgb(0, 255, 0); }
