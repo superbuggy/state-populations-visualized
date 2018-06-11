@@ -1,7 +1,11 @@
 let populationData = []
+
 fetch('/populations')
   .then(stream => stream.json())
-  .then(data => { populationData = data })
+  .then(data => {
+    populationData = data
+    colorStates(populationData)
+  })
 
 const svg = document.querySelector('svg')
 const infoHeader = document.querySelector('h1')
@@ -34,4 +38,27 @@ function cardinalToOrdinal (number) { // adapted from https://stackoverflow.com/
 function getStateFromAbbreviation (abbreviation) { // https://github.com/datasets-io/us-states-abbr-names/blob/master/lib/dataset.json
   const states = { 'AL': 'Alabama', 'AK': 'Alaska', 'AZ': 'Arizona', 'AR': 'Arkansas', 'CA': 'California', 'CO': 'Colorado', 'CT': 'Connecticut', 'DE': 'Delaware', 'FL': 'Florida', 'GA': 'Georgia', 'HI': 'Hawaii', 'ID': 'Idaho', 'IL': 'Illinois', 'IN': 'Indiana', 'IA': 'Iowa', 'KS': 'Kansas', 'KY': 'Kentucky', 'LA': 'Louisiana', 'ME': 'Maine', 'MD': 'Maryland', 'MA': 'Massachusetts', 'MI': 'Michigan', 'MN': 'Minnesota', 'MS': 'Mississippi', 'MO': 'Missouri', 'MT': 'Montana', 'NE': 'Nebraska', 'NV': 'Nevada', 'NH': 'New Hampshire', 'NJ': 'New Jersey', 'NM': 'New Mexico', 'NY': 'New York', 'NC': 'North Carolina', 'ND': 'North Dakota', 'OH': 'Ohio', 'OK': 'Oklahoma', 'OR': 'Oregon', 'PA': 'Pennsylvania', 'RI': 'Rhode Island', 'SC': 'South Carolina', 'SD': 'South Dakota', 'TN': 'Tennessee', 'TX': 'Texas', 'UT': 'Utah', 'VT': 'Vermont', 'VA': 'Virginia', 'WA': 'Washington', 'WV': 'West Virginia', 'WI': 'Wisconsin', 'WY': 'Wyoming' }
   return states[abbreviation]
+}
+
+function colorStates () {
+  const populationsDictionary = populationData.reduce((dictionary, state) => {
+    dictionary[state.State] = parseInt(state.Population.replace(/,/g, ''), 10)
+    return dictionary
+  }, {})
+  const maxPopulation = Math.max(...Object.values(populationsDictionary))
+  const minPopulation = Math.min(...Object.values(populationsDictionary))
+
+  const scaleColor = number => mapRange(number, minPopulation, maxPopulation, 95, 255)
+
+  const paths = Array.from(svg.querySelector('g').children)
+  paths.forEach(path => {
+    const stateName = getStateFromAbbreviation(path.id)
+    // console.log(path.style.fill, getStateFromAbbreviation(path.id))
+    const greenLevel = scaleColor(populationsDictionary[stateName])
+    path.style.fill = `rgb(0, ${greenLevel}, 0)`
+  })
+}
+
+function mapRange (number, sourceMin, sourceMax, targetMin, targetMax) {
+  return (number - sourceMin) * (targetMax - targetMin) / (sourceMax - sourceMin) + targetMin
 }
