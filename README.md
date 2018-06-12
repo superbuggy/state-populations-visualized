@@ -42,7 +42,7 @@ Initially, I'd sought out to learn and use a map library but saw the suggested t
 
 CSS is used to style an SVG path representing each state. Used `epi.org` as a reference point for styling.
 
-Uses ES2015 spread operator, `Object.values`, `fetch`, `.find`, and destructing assignments in the backend code.
+Uses ES2015 string interpolation, spread operator, `Object.values`, `fetch`, `Array.find`, and destructuring assignments in the backend code.
 
 ### Back End
 
