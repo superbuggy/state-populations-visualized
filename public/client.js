@@ -40,23 +40,32 @@ function getStateFromAbbreviation (abbreviation) { // https://github.com/dataset
   return states[abbreviation]
 }
 
-function colorStates () {
-  const populationsDictionary = populationData.reduce((dictionary, state) => {
+function getPopulationsDictionary () {
+  return populationData.reduce((dictionary, state) => {
     dictionary[state.State] = parseInt(state.Population.replace(/,/g, ''), 10)
     return dictionary
   }, {})
-  const maxPopulation = Math.max(...Object.values(populationsDictionary))
-  const minPopulation = Math.min(...Object.values(populationsDictionary))
+}
 
-  const scaleColor = number => mapRange(number, minPopulation, maxPopulation, 95, 255)
-
+function colorStates () {
+  const populationsDictionary = getPopulationsDictionary()
+  const scaleColor = createColorScalingFunction()
   const paths = Array.from(svg.querySelector('g').children)
   paths.forEach(path => {
     const stateName = getStateFromAbbreviation(path.id)
-    // console.log(path.style.fill, getStateFromAbbreviation(path.id))
     const greenLevel = scaleColor(populationsDictionary[stateName])
     path.style.fill = `rgb(0, ${greenLevel}, 0)`
   })
+}
+
+function getMinAndMaxFromPopulations () {
+  const populations = Object.values(getPopulationsDictionary())
+  return [Math.min(...populations), Math.max(...populations)]
+}
+
+function createColorScalingFunction () {
+  const [minPopulation, maxPopulation] = getMinAndMaxFromPopulations()
+  return number => mapRange(number, minPopulation, maxPopulation, 95, 255)
 }
 
 function mapRange (number, sourceMin, sourceMax, targetMin, targetMax) {
