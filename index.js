@@ -1,6 +1,7 @@
 const express = require('express')
 const csv = require('csvtojson')
 const { exec } = require('child_process')
+const path = require('path')
 
 const app = express()
 const PORT = 3000
@@ -18,10 +19,10 @@ function startUp () {
   exec('open http://localhost:3000/')
 }
 
-//Route Handling
+// Route Handling
 
 function serveHomePage (req, res) {
-  res.sendFile(__dirname + '/public/index.html')
+  res.sendFile(path.join(__dirname, '/public/index.html'))
 }
 
 function serveJson (req, res) {

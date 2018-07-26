@@ -42,7 +42,7 @@ I opted to use as few libraries as possible, using an SVG map of the United Stat
 
 CSS is used to style an SVG path representing each state. Used `epi.org` as a reference point for styling.
 
-Uses ES2015 spread operator, `Object.values`, `fetch`, `.find`, and destructing assignments in the backend code.
+Uses ES2015 string interpolation, spread operator, `Object.values`, `fetch`, `Array.find`, and destructuring assignments in the backend code.
 
 ### Back End
 
